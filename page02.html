@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - page02.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .settings-window {
+            background-color: #2d2d2d;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 8px 0;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .settings-group {
+            margin-bottom: 24px;
+        }
+
+        .settings-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .volume-icon {
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .slider {
+            flex: 1;
+            height: 4px;
+            background-color: #4a4a4a;
+            border-radius: 2px;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .action-icon {
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .form-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #404040;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #1a1a1a;
+            border: 1px solid #404040;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #0084ff;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox {
+            width: 16px;
+            height: 16px;
+            accent-color: #0084ff;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-cancel {
+            background-color: #404040;
+            color: #ffffff;
+        }
+
+        .btn-cancel:hover {
+            background-color: #505050;
+        }
+
+        .btn-save {
+            background-color: #0084ff;
+            color: #ffffff;
+        }
+
+        .btn-save:hover {
+            background-color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-window">
+        <!-- Header con 4 iconos SVG -->
+        <div class="header-icons">
+            <button class="icon-btn" title="Modo nocturno">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="icon-btn" title="WiFi">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                    <line x1="12" y1="20" x2="12.01" y2="20"/>
+                </svg>
+            </button>
+            <button class="icon-btn" title="Batería">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="6" width="18" height="12" rx="2" ry="2"/>
+                    <line x1="23" y1="13" x2="23" y2="11"/>
+                </svg>
+            </button>
+            <button class="icon-btn" title="Configuración">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m15.5-6.5L19 8l-1.5 1.5M5 19l1.5-1.5M5 5l1.5 1.5m11 11L19 16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Controles deslizantes -->
+        <div class="settings-group">
+            <label class="settings-label">Media volume</label>
+            <div class="slider-container">
+                <div class="volume-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                </div>
+                <input type="range" class="slider" min="0" max="100" value="75" id="mediaVolume">
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <label class="settings-label">Alarm volume</label>
+            <div class="slider-container">
+                <div class="volume-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="4" r="2"/>
+                        <path d="M12 6v12"/>
+                        <path d="M16 10H8"/>
+                        <path d="M16 14H8"/>
+                    </svg>
+                </div>
+                <input type="range" class="slider" min="0" max="100" value="50" id="alarmVolume">
+                <div class="action-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <label class="settings-label">Icon click callback</label>
+            <div class="slider-container">
+                <div class="volume-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                </div>
+                <input type="range" class="slider" min="0" max="100" value="60" id="iconCallback">
+                <div class="action-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario con 3 campos de texto, 1 checkbox y 2 botones -->
+        <div class="form-section">
+            <div class="input-group">
+                <input type="text" class="text-input" placeholder="Nombre de usuario" id="username">
+            </div>
+            
+            <div class="input-group">
+                <input type="email" class="text-input" placeholder="Correo electrónico" id="email">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" class="text-input" placeholder="Contraseña" id="password">
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" class="checkbox" id="notifications">
+                <label for="notifications" class="checkbox-label">Recibir notificaciones</label>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-cancel" onclick="cancelForm()">Cancelar</button>
+                <button class="btn btn-save" onclick="saveForm()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para los botones del formulario
+        function saveForm() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const notifications = document.getElementById('notifications').checked;
+            const mediaVolume = document.getElementById('mediaVolume').value;
+            const alarmVolume = document.getElementById('alarmVolume').value;
+            const iconCallback = document.getElementById('iconCallback').value;
+
+            console.log('Datos guardados:', {
+                username,
+                email,
+                password: password ? '*'.repeat(password.length) : '',
+                notifications,
+                mediaVolume,
+                alarmVolume,
+                iconCallback
+            });
+
+            alert('Configuración guardada correctamente');
+        }
+
+        function cancelForm() {
+            if (confirm('¿Estás seguro de que deseas cancelar? Se perderán los cambios no guardados.')) {
+                // Limpiar formulario
+                document.getElementById('username').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('notifications').checked = false;
+                
+                // Resetear sliders a valores por defecto
+                document.getElementById('mediaVolume').value = 75;
+                document.getElementById('alarmVolume').value = 50;
+                document.getElementById('iconCallback').value = 60;
+            }
+        }
+
+        // Actualizar valores de los sliders en tiempo real
+        document.getElementById('mediaVolume').addEventListener('input', function(e) {
+            console.log('Media volume:', e.target.value);
+        });
+
+        document.getElementById('alarmVolume').addEventListener('input', function(e) {
+            console.log('Alarm volume:', e.target.value);
+        });
+
+        document.getElementById('iconCallback').addEventListener('input', function(e) {
+            console.log('Icon callback:', e.target.value);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card con Sliders RGB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Parte 1: Rectángulo con bordes redondeados */
+        .color-display {
+            height: 250px;
+            background-color: rgb(80, 165, 92);
+            margin: 20px;
+            border-radius: 8px;
+            border: 3px solid #333;
+        }
+
+        /* Parte 2: Controles RGB */
+        .controls {
+            background-color: #333;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .slider-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .slider-label {
+            font-size: 18px;
+            font-weight: bold;
+            width: 20px;
+        }
+
+        .slider {
+            flex: 1;
+            height: 6px;
+            background-color: #555;
+            border-radius: 3px;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+
+        .value-input {
+            width: 60px;
+            padding: 8px;
+            background-color: #444;
+            color: white;
+            border: 1px solid #666;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .value-input:focus {
+            outline: none;
+            border-color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Parte 1: Rectángulo de color -->
+        <div class="color-display" id="colorDisplay"></div>
+        
+        <!-- Parte 2: Controles RGB -->
+        <div class="controls">
+            <div class="slider-group">
+                <span class="slider-label">R</span>
+                <input type="range" class="slider" id="redSlider" min="0" max="255" value="80">
+                <input type="number" class="value-input" id="redValue" min="0" max="255" value="80">
+            </div>
+            
+            <div class="slider-group">
+                <span class="slider-label">G</span>
+                <input type="range" class="slider" id="greenSlider" min="0" max="255" value="165">
+                <input type="number" class="value-input" id="greenValue" min="0" max="255" value="165">
+            </div>
+            
+            <div class="slider-group">
+                <span class="slider-label">B</span>
+                <input type="range" class="slider" id="blueSlider" min="0" max="255" value="92">
+                <input type="number" class="value-input" id="blueValue" min="0" max="255" value="92">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Referencias a los elementos
+        const colorDisplay = document.getElementById('colorDisplay');
+        const redSlider = document.getElementById('redSlider');
+        const greenSlider = document.getElementById('greenSlider');
+        const blueSlider = document.getElementById('blueSlider');
+        const redValue = document.getElementById('redValue');
+        const greenValue = document.getElementById('greenValue');
+        const blueValue = document.getElementById('blueValue');
+
+        // Función para actualizar el color
+        function updateColor() {
+            const r = redSlider.value;
+            const g = greenSlider.value;
+            const b = blueSlider.value;
+            
+            const rgbColor = `rgb(${r}, ${g}, ${b})`;
+            colorDisplay.style.backgroundColor = rgbColor;
+            
+            // Actualizar los campos de texto
+            redValue.value = r;
+            greenValue.value = g;
+            blueValue.value = b;
+        }
+
+        // Función para actualizar desde los campos de texto
+        function updateFromInput(slider, input) {
+            const value = Math.max(0, Math.min(255, parseInt(input.value) || 0));
+            input.value = value;
+            slider.value = value;
+            updateColor();
+        }
+
+        // Event listeners para los sliders
+        redSlider.addEventListener('input', updateColor);
+        greenSlider.addEventListener('input', updateColor);
+        blueSlider.addEventListener('input', updateColor);
+
+        // Event listeners para los campos de texto
+        redValue.addEventListener('input', () => updateFromInput(redSlider, redValue));
+        greenValue.addEventListener('input', () => updateFromInput(greenSlider, greenValue));
+        blueValue.addEventListener('input', () => updateFromInput(blueSlider, blueValue));
+
+        // Inicializar el color
+        updateColor();
+    </script>
+</body>
+</html>
