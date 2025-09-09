@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Index</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body{ margin:0; font-family: system-ui, sans-serif; background:#0f172a; color:#e5e7eb; }
+    .wrap{
+      min-height:100svh;
+      display:grid;
+      place-items:center;
+      padding: clamp(1rem, 3vw, 2rem);
+    }
+    .grid{
+      display:grid;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      width:min(1100px, 100%);
+    }
+    .flip{
+      perspective: 1200px;
+    }
+    .flip-inner{
+      position: relative;
+      width:100%;
+      aspect-ratio: 4/3;
+      transform-style: preserve-3d;
+      transition: transform .8s cubic-bezier(.2,.6,.2,1);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      background:#111827;
+    }
+    .flip:hover .flip-inner{
+      transform: rotateX(180deg) rotateY(10deg);
+    }
+    .face{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      padding:1.2rem;
+      backface-visibility: hidden;
+    }
+    .front{ background: linear-gradient(135deg,#0ea5e9,#22d3ee); }
+    .back{
+      background:#0b1220;
+      transform: rotateX(180deg);
+      text-align:center;
+    }
+    a.card-link{
+      color:#fff; text-decoration:none; font-weight:700;
+      border:1px solid rgba(255,255,255,.3);
+      padding:.6rem 1rem; border-radius:12px;
+      transition: transform .2s ease;
+      display:inline-block;
+    }
+    a.card-link:active{ transform: scale(.98); }
+    h2{ margin:0 }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="grid">
+      <!-- PAGE 01 -->
+      <article class="flip">
+        <div class="flip-inner">
+          <div class="face front"><h2>Page1</h2></div>
+          <div class="face back">
+            <p>Formulario + animación label + campo image DnD</p>
+            <a class="card-link" href="page01.html">Ir a Page1</a>
+          </div>
+        </div>
+      </article>
+      <!-- PAGE 02 -->
+      <article class="flip">
+        <div class="flip-inner">
+          <div class="face front"><h2>Page2</h2></div>
+          <div class="face back">
+            <p>Form + card de color con sliders 0–255</p>
+            <a class="card-link" href="page02.html">Ir a Page2</a>
+          </div>
+        </div>
+      </article>
+      <!-- PAGE 03 -->
+      <article class="flip">
+        <div class="flip-inner">
+          <div class="face front"><h2>Page3</h2></div>
+          <div class="face back">
+            <p>Layout + hover imágenes + responsive</p>
+            <a class="card-link" href="page03.html">Ir a Page3</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
