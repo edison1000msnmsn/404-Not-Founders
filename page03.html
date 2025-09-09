@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page03</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    :root{
+      --gap: 1rem;
+    }
+    body{
+      margin:0;
+      font-family: system-ui, sans-serif;
+      background: #f6f7fb;
+      color:#222;
+    }
+    header, footer{
+      padding: 1rem clamp(1rem, 3vw, 2rem);
+      background: #111827;
+      color: #fff;
+    }
+    .container{
+      padding: clamp(1rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+    .hero{
+      background: linear-gradient(135deg,#e5f0ff,#fff);
+      border-radius: 14px;
+      padding: clamp(1rem, 3vw, 2rem);
+    }
+    .grid{
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(12, 1fr);
+    }
+    /* breakpoints: <480, <900, <1200, >1200 */
+    @media (max-width: 479px){
+      .col-12-xs{ grid-column: span 12; }
+    }
+    @media (min-width: 480px) and (max-width: 899px){
+      .col-6-sm{ grid-column: span 6; }
+      .col-12-sm{ grid-column: span 12; }
+    }
+    @media (min-width: 900px) and (max-width: 1199px){
+      .col-4-md{ grid-column: span 4; }
+      .col-8-md{ grid-column: span 8; }
+    }
+    @media (min-width: 1200px){
+      .col-3-lg{ grid-column: span 3; }
+      .col-9-lg{ grid-column: span 9; }
+    }
+    .card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      padding:1rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,.05);
+    }
+    .img-wrap{
+      aspect-ratio: 16/9;
+      border-radius:12px;
+      overflow:hidden;
+      background:#e5e7eb;
+    }
+    .img-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition: opacity .2s ease;
+    }
+    .img-wrap:hover img{
+      opacity: 1.1; /* +10% visual (browsers clamp to 1, efecto perceptible) */
+      filter: brightness(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header><h1>Galería / Sección Destacada</h1></header>
+
+  <main class="container">
+    <section class="hero card">
+      <h2>Sección principal</h2>
+      <p>Texto de ejemplo. Ajusta colores, tipografías e imágenes para que se parezcan al modelo del enunciado.</p>
+    </section>
+
+    <!-- Grid adaptable con 12 columnas -->
+    <section class="grid">
+      <!-- Tarjeta 1 -->
+      <article class="card col-12-xs col-6-sm col-4-md col-3-lg">
+        <div class="img-wrap">
+          <img src="https://picsum.photos/800/450?1" alt="Imagen 1" />
+        </div>
+        <h3>Card 1</h3>
+        <p>Descripción breve.</p>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="card col-12-xs col-6-sm col-4-md col-3-lg">
+        <div class="img-wrap">
+          <img src="https://picsum.photos/800/450?2" alt="Imagen 2" />
+        </div>
+        <h3>Card 2</h3>
+        <p>Descripción breve.</p>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="card col-12-xs col-6-sm col-4-md col-3-lg">
+        <div class="img-wrap">
+          <img src="https://picsum.photos/800/450?3" alt="Imagen 3" />
+        </div>
+        <h3>Card 3</h3>
+        <p>Descripción breve.</p>
+      </article>
+
+      <!-- Bloque de texto más ancho en md/lg -->
+      <article class="card col-12-sm col-8-md col-9-lg">
+        <h3>Texto / Contenido</h3>
+        <p>Acomoda este bloque para que la distribución sea muy parecida a la referencia del enunciado.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer><small>© 2025 Equipo 404-Not-Founders</small></footer>
+</body>
+</html>
